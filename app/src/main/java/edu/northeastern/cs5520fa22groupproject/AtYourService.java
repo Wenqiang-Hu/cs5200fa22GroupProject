@@ -9,9 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-
-import java.util.List;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import edu.northeastern.cs5520fa22groupproject.model.IPlaceholder;
 import edu.northeastern.cs5520fa22groupproject.model.RandomColor;
@@ -28,11 +27,16 @@ public class AtYourService extends AppCompatActivity {
     String url;
     String color;
     IPlaceholder api;
+    int waiting = 0;
+    ProgressBar pb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_at_your_service);
+
+        pb = (ProgressBar) findViewById(R.id.pb_loading);
+        pb.setVisibility(ProgressBar.INVISIBLE);
 
         inputText = (EditText) findViewById(R.id.color);
         Button btSubmit = findViewById(R.id.submit);
@@ -40,7 +44,8 @@ public class AtYourService extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 color = inputText.getText().toString();
-                getPost();
+                pb.setVisibility(ProgressBar.VISIBLE);
+                getColor();
             }
         });
 
@@ -54,8 +59,9 @@ public class AtYourService extends AppCompatActivity {
         api = retrofit.create(IPlaceholder.class);
     }
 
-    private void getPost(){
-        Call<RandomColor> call = api.getPostModels(color);
+    private void getColor(){
+
+        Call<RandomColor> call = api.getColorModels(color);
         call.enqueue(new Callback<RandomColor>() {
             @Override
             public void onResponse(Call<RandomColor> call, Response<RandomColor> response) {
@@ -63,12 +69,16 @@ public class AtYourService extends AppCompatActivity {
                     Log.d("faild", "Call failed!" + response.code());
 
                 }
-
                 Log.d("Success", "Call Successed!");
                 RandomColor rc = response.body();
-//                Log.d("random color: ", rc.toString());
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 Log.d("random color: ", rc.getRgb());
                 ConstraintLayout li=(ConstraintLayout) findViewById(R.id.Layout_ays);
+                pb.setVisibility(ProgressBar.INVISIBLE);
                 li.setBackgroundColor(Color.parseColor(rc.getHex()));
             }
 
