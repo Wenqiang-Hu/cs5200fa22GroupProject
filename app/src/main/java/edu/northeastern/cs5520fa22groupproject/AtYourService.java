@@ -2,7 +2,6 @@ package edu.northeastern.cs5520fa22groupproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-
 import edu.northeastern.cs5520fa22groupproject.model.IPlaceholder;
 import edu.northeastern.cs5520fa22groupproject.model.RandomColor;
 import retrofit2.Call;
@@ -27,7 +24,6 @@ public class AtYourService extends AppCompatActivity {
     String url;
     String color;
     IPlaceholder api;
-    int waiting = 0;
     ProgressBar pb;
 
     @Override
