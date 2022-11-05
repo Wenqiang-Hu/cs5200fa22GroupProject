@@ -13,8 +13,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +23,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         atYourService.setOnClickListener(this);
 
         Button stickButton = findViewById(R.id.button_Stick_It);
-        stickButton.setOnClickListener(this);
+        stickButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent stickButton = new Intent(MainActivity.this, StartActivity.class);
+                startActivity(stickButton);
+            }
+        });
     }
 
     @Override
@@ -34,9 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (theId == R.id.atyourservice) {
             Intent clicky = new Intent(MainActivity.this, AtYourService.class);
             startActivity(clicky);
-        } else if (theId == R.id.button_Stick_It) {
-            Intent intent = new Intent(this, Sticker.class);
-            startActivity(intent);
         }
+//        else if (theId == R.id.button_Stick_It) {
+//            Intent intent = new Intent(MainActivity.this, StartActivity.class);
+//            startActivity(intent);
+//        }
     }
 }

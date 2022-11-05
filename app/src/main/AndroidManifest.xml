@@ -17,6 +17,17 @@
         android:theme="@style/Theme.Cs5520fa22GroupProject"
         tools:targetApi="31">
         <activity
+            android:name=".StartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:parentActivityName=".StartActivity"/>
+        <activity
+            android:name=".RegisterActivity"
+            android:parentActivityName=".StartActivity"
+            android:exported="false" />
+        <activity
             android:name=".Sticker"
             android:exported="false" />
         <activity
