@@ -6,8 +6,9 @@ public class User {
     String[] sendSticker;
     String[] receivedSticker;
 
-    public User(String id, String username, String[] sendSticker, String[] receivedSticker) {
-
+    public User(String id, String username) {
+        this.id = id;
+        this.username = username;
     }
 
 }

@@ -11,21 +11,21 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Sticker extends AppCompatActivity {
 
-
-    private FirebaseAnalytics mFirebaseAnalytics;
-    private FirebaseAuth mAuth;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sticker);
-
-        FirebaseApp.initializeApp(this);
-        // Obtain the FirebaseAnalytics instance.
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-    }
+//
+//    private FirebaseAnalytics mFirebaseAnalytics;
+//    private FirebaseAuth mAuth;
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_sticker);
+//
+//        FirebaseApp.initializeApp(this);
+//        // Obtain the FirebaseAnalytics instance.
+//        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+//        // Initialize Firebase Auth
+//        mAuth = FirebaseAuth.getInstance();
+//    }
 
 //    @Override
 //    public void onStart() {
