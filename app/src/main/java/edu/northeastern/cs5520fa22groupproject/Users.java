@@ -40,6 +40,10 @@ public class Users extends AppCompatActivity {
     int totalUsers = 0;
     ProgressDialog pd;
 
+    FirebaseUser currUser = FirebaseAuth.getInstance().getCurrentUser();
+    String currUsername = currUser.getDisplayName();
+    String currUID = currUser.getUid();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,13 +89,13 @@ public class Users extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
-
+                    String uid = ds.child("id").getValue(String.class);
                     String name = ds.child("username").getValue(String.class);
 
-
+                    if (!uid.equals(currUID)) {
                         al.add(name);
                         totalUsers++;
-
+                    }
                 }
 
                 if (totalUsers <= 1) {
@@ -109,6 +113,5 @@ public class Users extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {}
         };
         usersdRef.addListenerForSingleValueEvent(eventListener);
-
     }
 }
