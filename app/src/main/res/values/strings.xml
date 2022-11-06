@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">cs5520fa22GroupProject</string>
+    <string name="at_your_service">At Your Service</string>
+    <string name="hello">Hello</string>
+    <string name="color">Color</string>
+    <string name="red_pink_purple_navy_blue_naqua_green_lime_yellow_orange">Red, Pink, Purple, Navy, Blue, \nAqua, Green, Lime, Yellow, Orange</string>
+    <string name="please_input_colors_from_the_list_notherwise_the_color_will_be_totally_random">Please input colors from the list... \nOtherwise the color will be totally random!</string>
+    <string name="what_is_your_favor_color">What is your favor color?</string>
+    <string name="submit">Submit</string>
+</resources>
