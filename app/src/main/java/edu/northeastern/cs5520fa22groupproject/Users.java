@@ -1,11 +1,9 @@
 package edu.northeastern.cs5520fa22groupproject;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -38,7 +36,6 @@ public class Users extends AppCompatActivity {
     TextView noUsersText;
     ArrayList<String> al = new ArrayList<>();
     int totalUsers = 0;
-    ProgressDialog pd;
 
     FirebaseUser currUser = FirebaseAuth.getInstance().getCurrentUser();
     String currUsername = currUser.getDisplayName();
@@ -51,10 +48,6 @@ public class Users extends AppCompatActivity {
 
         usersList = (ListView) findViewById(R.id.usersList);
         noUsersText = (TextView) findViewById(R.id.noUsersText);
-
-        pd = new ProgressDialog(Users.this);
-        pd.setMessage("Loading...");
-        pd.show();
 
         String url = "https://chatroom-c1076-default-rtdb.firebaseio.com/Users.json";
 
@@ -106,7 +99,6 @@ public class Users extends AppCompatActivity {
                     usersList.setVisibility(View.VISIBLE);
                     usersList.setAdapter(new ArrayAdapter<String>(Users.this, android.R.layout.simple_list_item_1, al));
                 }
-                pd.dismiss();
             }
 
             @Override
