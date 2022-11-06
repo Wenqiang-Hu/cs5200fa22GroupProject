@@ -39,9 +39,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent clicky = new Intent(MainActivity.this, AtYourService.class);
             startActivity(clicky);
         }
+<<<<<<< HEAD
 //        else if (theId == R.id.button_Stick_It) {
 //            Intent intent = new Intent(MainActivity.this, StartActivity.class);
 //            startActivity(intent);
 //        }
+=======
+>>>>>>> kexinqiu2
     }
 }
