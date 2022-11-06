@@ -55,19 +55,19 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-<<<<<<< HEAD
+
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
                                         Toast.makeText(LoginActivity.this, "SUCCESSFULL!!", Toast.LENGTH_SHORT).show();
                                         finish();
-=======
+
 //                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         Toast.makeText(LoginActivity.this, "SUCCESSFULL!!", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(LoginActivity.this, Users.class));
 //                                        finish();
->>>>>>> kexinqiu2
+
                                     } else {
                                         Toast.makeText(LoginActivity.this, "Authentication failed", Toast.LENGTH_SHORT).show();
                                     }
