@@ -1,6 +1,7 @@
 package edu.northeastern.cs5520fa22groupproject;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -15,9 +16,9 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.firebase.client.ChildEventListener;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -40,35 +41,70 @@ public class Chat extends AppCompatActivity {
     ImageView sendSad;
     Firebase chatDb;
     Set<String> set;
+    DatabaseReference ref;
+    ArrayList<String> al = new ArrayList<>();
+    ArrayAdapter adapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+        //        ref = FirebaseDatabase.getInstance().getReferenceFromUrl("https://chatroom-c1076-default-rtdb.firebaseio.com/Messages/" + UserDetails.getUsername() + "_" + UserDetails.getChatWith());
+        ref = FirebaseDatabase.getInstance().getReference("Messages/" + UserDetails.getUsername() + "_" + UserDetails.getChatWith());
         listView = (ListView) findViewById(R.id.listView);
+        adapter = new ArrayAdapter<String>(Chat.this, android.R.layout.simple_list_item_1, al);
+        listView.setAdapter(adapter);
+
         sendHappy = (ImageView) findViewById(R.id.imageView);
         sendSad = (ImageView) findViewById(R.id.imageView2);
-        ArrayList<String> al = new ArrayList<>();
+
         set = new HashSet<>();
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReferenceFromUrl("https://chatroom-c1076-default-rtdb.firebaseio.com/Messages/" + UserDetails.getUsername() + "_" + UserDetails.getChatWith());
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot ds : snapshot.getChildren()) {
-                    if (!set.contains(ds.getKey())){
-                        String name = ds.child("user").getValue(String.class);
-                        String sticker = ds.child("sticker").getValue(String.class);
-                        al.add(sticker);
-                        System.out.println(sticker);
-                        set.add(ds.getKey());
-                    }
-                }
+//                for(DataSnapshot ds : snapshot.getChildren()) {
+//                    if (!set.contains(ds.getKey())){
+//                        String name = ds.child("user").getValue(String.class);
+//                        String sticker = ds.child("sticker").getValue(String.class);
+//                        al.add(sticker);
+//                        System.out.println(sticker);
+//                        set.add(ds.getKey());
+//                    }
+//                }
                 //al->listView
-                ArrayAdapter adapter = new ArrayAdapter<String>(Chat.this,
-                        android.R.layout.simple_list_item_1);
-                listView.setAdapter(adapter);
+
+                ref.addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                        System.out.println("=======> " + snapshot);
+                        String value = snapshot.child("sticker").getValue(String.class);
+                        al.add(value);
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
 
             @Override
