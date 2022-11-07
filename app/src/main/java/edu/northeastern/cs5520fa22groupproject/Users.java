@@ -24,12 +24,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.Iterator;
+
 
 public class Users extends AppCompatActivity {
     ListView usersList;
@@ -38,7 +34,6 @@ public class Users extends AppCompatActivity {
     int totalUsers = 0;
 
     FirebaseUser currUser = FirebaseAuth.getInstance().getCurrentUser();
-    String currUsername = currUser.getDisplayName();
     String currUID = currUser.getUid();
 
     @Override
@@ -75,7 +70,7 @@ public class Users extends AppCompatActivity {
         });
     }
 
-    public void doOnSuccess(String s) {
+    public void  doOnSuccess(String s) {
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference usersdRef = rootRef.child("Users");
         ValueEventListener eventListener = new ValueEventListener() {
@@ -84,10 +79,11 @@ public class Users extends AppCompatActivity {
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     String uid = ds.child("id").getValue(String.class);
                     String name = ds.child("username").getValue(String.class);
-
                     if (!uid.equals(currUID)) {
                         al.add(name);
                         totalUsers++;
+                    }else{
+                        UserDetails.setUsername(name);
                     }
                 }
 
