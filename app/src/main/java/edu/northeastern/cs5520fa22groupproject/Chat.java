@@ -3,7 +3,11 @@ package edu.northeastern.cs5520fa22groupproject;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -110,13 +114,43 @@ public class Chat extends AppCompatActivity {
                             if (stickerValue.equals("happy")) {
                                 message_arraylist.add(new Message(R.drawable.happy, currUsername, currTime));
 //                                message_arraylist.add(new Message(R.drawable.happy));
+
+//                                NotificationCompat.Builder mbuilder = (NotificationCompat.Builder)
+//                                        new NotificationCompat.Builder(getApplicationContext())
+//                                                .setSmallIcon(R.drawable.happy)
+//                                                .setContentTitle("Notification")
+//                                                .setContentText("This is a notification for you");
+//
+//                                NotificationManager notificationManager = (NotificationManager)
+//                                        getSystemService(NOTIFICATION_SERVICE);
+//                                notificationManager.notify(0, mbuilder.build());
                             } else {
                                 message_arraylist.add(new Message(R.drawable.sad, currUsername, currTime));
 //                                message_arraylist.add(new Message(R.drawable.sad));
+
+//                                NotificationCompat.Builder mbuilder = (NotificationCompat.Builder)
+//                                        new NotificationCompat.Builder(getApplicationContext())
+//                                                .setSmallIcon(R.drawable.sad)
+//                                                .setContentTitle("Notification")
+//                                                .setContentText("This is a notification for you");
+//
+//                                NotificationManager notificationManager = (NotificationManager)
+//                                        getSystemService(NOTIFICATION_SERVICE);
+//                                notificationManager.notify(0, mbuilder.build());
                             }
                             messageAdapter.notifyDataSetChanged();
-
                             set.add(snapshot.getKey());
+
+
+//                            NotificationCompat.Builder mbuilder = (NotificationCompat.Builder)
+//                                    new NotificationCompat.Builder(getApplicationContext())
+//                                            .setSmallIcon(R.drawable.happy)
+//                                            .setContentTitle("Notification")
+//                                            .setContentText("This is a notification for you");
+//
+//                            NotificationManager notificationManager = (NotificationManager)
+//                                    getSystemService(NOTIFICATION_SERVICE);
+//                            notificationManager.notify(0, mbuilder.build());
                         }
                     }
 
@@ -165,6 +199,25 @@ public class Chat extends AppCompatActivity {
                                         "happy",
                                         UserDetails.getUsername()
                                 ));
+
+//                NotificationCompat.Builder mbuilder = (NotificationCompat.Builder)
+//                        new NotificationCompat.Builder(getApplicationContext())
+//                                .setSmallIcon(R.drawable.happy)
+//                                .setContentTitle("Notification")
+//                                .setContentText("This is a notification for you");
+//
+//                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(Chat.this);
+//                notificationManager.notify(0, mbuilder.build());
+
+                Notification n = new Notification.Builder(Chat.this)
+                        .setSmallIcon(R.drawable.happy)
+                        .setContentTitle("New mail from " + "test@gmail.com")
+                        .setContentText("Subject")
+                        .build();
+
+                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                notificationManager.notify(0, n);
+
             }
         });
 
