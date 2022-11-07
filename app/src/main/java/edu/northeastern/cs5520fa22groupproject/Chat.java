@@ -5,19 +5,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,10 +20,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 import edu.northeastern.cs5520fa22groupproject.model.Message;
@@ -37,6 +30,7 @@ public class Chat extends AppCompatActivity {
 
     LinearLayout layout;
     ListView listView;
+    ScrollView scrollView;
     ImageView sendHappy;
     ImageView sendSad;
     Firebase chatDb;
@@ -53,9 +47,11 @@ public class Chat extends AppCompatActivity {
 
         //        ref = FirebaseDatabase.getInstance().getReferenceFromUrl("https://chatroom-c1076-default-rtdb.firebaseio.com/Messages/" + UserDetails.getUsername() + "_" + UserDetails.getChatWith());
         ref = FirebaseDatabase.getInstance().getReference("Messages/" + UserDetails.getUsername() + "_" + UserDetails.getChatWith());
-        listView = (ListView) findViewById(R.id.listView);
+        listView = (ListView) findViewById(R.id.list_view);
+//        scrollView = (ScrollView) findViewById(R.id.scroll_view);
         adapter = new ArrayAdapter<String>(Chat.this, android.R.layout.simple_list_item_1, al);
         listView.setAdapter(adapter);
+//        scrollView.setAdapter(adapter);
 
         sendHappy = (ImageView) findViewById(R.id.imageView);
         sendSad = (ImageView) findViewById(R.id.imageView2);
@@ -74,15 +70,19 @@ public class Chat extends AppCompatActivity {
 //                        set.add(ds.getKey());
 //                    }
 //                }
+
                 //al->listView
 
                 ref.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                        System.out.println("=======> " + snapshot);
-                        String value = snapshot.child("sticker").getValue(String.class);
-                        al.add(value);
-                        adapter.notifyDataSetChanged();
+                        if (!set.contains(snapshot.getKey())) {
+                            System.out.println("=======> " + snapshot);
+                            String value = snapshot.child("sticker").getValue(String.class);
+                            al.add(value);
+                            adapter.notifyDataSetChanged();
+                            set.add(snapshot.getKey());
+                        }
                     }
 
                     @Override
@@ -153,5 +153,17 @@ public class Chat extends AppCompatActivity {
             }
         });
 
+
+        scrollMyListViewToBottom();
+    }
+
+    private void scrollMyListViewToBottom() {
+        listView.post(new Runnable() {
+            @Override
+            public void run() {
+                // Select the last row so it will scroll into view...
+                listView.setSelection(listView.getCount() - 1);
+            }
+        });
     }
 }
