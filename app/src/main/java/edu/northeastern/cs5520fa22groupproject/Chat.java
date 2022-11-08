@@ -48,18 +48,12 @@ public class Chat extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.list_view);
 
-//        message_arraylist.add(new Message(R.drawable.happy, "dog1", new Date(1667778729986L)));
-//        message_arraylist.add(new Message(R.drawable.sad, "sad dog", new Date(1667778729989L)));
-
         MessageAdapter messageAdapter = new MessageAdapter(this, R.layout.activity_message, message_arraylist);
         listView.setAdapter(messageAdapter);
 
 
-        //        ref = FirebaseDatabase.getInstance().getReferenceFromUrl("https://chatroom-c1076-default-rtdb.firebaseio.com/Messages/" + UserDetails.getUsername() + "_" + UserDetails.getChatWith());
         ref = FirebaseDatabase.getInstance().getReference("Messages/" + UserDetails.getUsername() + "_" + UserDetails.getChatWith());
 
-//        adapter = new ArrayAdapter<String>(Chat.this, android.R.layout.simple_list_item_1, al);
-//        listView.setAdapter(adapter);
 
         sendHappy = (ImageView) findViewById(R.id.imageView);
         sendSad = (ImageView) findViewById(R.id.imageView2);
@@ -69,50 +63,19 @@ public class Chat extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for(DataSnapshot ds : snapshot.getChildren()) {
-//                    if (!set.contains(ds.getKey())){
-//                        String name = ds.child("user").getValue(String.class);
-//                        String sticker = ds.child("sticker").getValue(String.class);
-//                        al.add(sticker);
-//                        System.out.println(sticker);
-//                        set.add(ds.getKey());
-//                    }
-//                }
-
 
                 ref.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                         if (!set.contains(snapshot.getKey())) {
-//                            System.out.println("=======> " + snapshot);
                             String stickerValue = snapshot.child("sticker").getValue(String.class);
                             String currUsername = snapshot.child("user").getValue(String.class);
                             String currTime = snapshot.child("timeString").getValue(String.class);
 
-                            System.out.println("currTime ------------>    " + currTime);
-
-//                            long currTime2 = snapshot.child("time").getValue();
-
-//                            String stringToConvert = String.valueOf(snapshot.child("time").getValue());
-//                            if (stringToConvert == null) {
-//                                System.out.println("!!!!!!!!    NULL");
-//                            }
-//                            System.out.println("00000000   " + stringToConvert);
-//                            Long convertedLong = Long.parseLong(stringToConvert);
-//                            System.out.println("111111111111111111:  " + convertedLong);
-//                            Date d = new Date(convertedLong);
-//                            System.out.println("222222222222222222:  " + d);
-//                            System.out.println("======> currTime B:  " + (snapshot.child("time").getValue() instanceof));
-
-//                            al.add(stickerValue);
-//                            adapter.notifyDataSetChanged();
-
                             if (stickerValue.equals("happy")) {
                                 message_arraylist.add(new Message(R.drawable.happy, currUsername, currTime));
-//                                message_arraylist.add(new Message(R.drawable.happy));
                             } else {
                                 message_arraylist.add(new Message(R.drawable.sad, currUsername, currTime));
-//                                message_arraylist.add(new Message(R.drawable.sad));
                             }
                             messageAdapter.notifyDataSetChanged();
 
