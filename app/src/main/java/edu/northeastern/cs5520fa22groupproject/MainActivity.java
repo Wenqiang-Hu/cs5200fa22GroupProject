@@ -30,6 +30,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(stickButton);
             }
         });
+
+        Button aboutMe = findViewById((R.id.aboutButton));
+        aboutMe.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent aboutMe = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(aboutMe);
+            }
+        });
     }
 
     @Override
