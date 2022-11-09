@@ -19,8 +19,14 @@
         android:visibility="gone"/>
 
     <ListView
+        android:id="@+id/usersList"
+        android:layout_width="match_parent"
+        android:layout_height="649dp" />
+
+    <Button
+        android:id="@+id/bt_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/usersList"/>
+        android:text="Profile" />
 
 </LinearLayout>

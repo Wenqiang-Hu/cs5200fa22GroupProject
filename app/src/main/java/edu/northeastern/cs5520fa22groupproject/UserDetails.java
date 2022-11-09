@@ -3,6 +3,26 @@ package edu.northeastern.cs5520fa22groupproject;
 public class UserDetails {
     static String username = "";
     static String chatWith = "";
+    static int happyUsed = 0;
+    static int sadUsed = 0;
+    static String uid = "";
+    static String imageURL = "";
+
+    public static int getSadUsed() {
+        return sadUsed;
+    }
+
+    public static void setSadUsed(int sadUsed) {
+        UserDetails.sadUsed = sadUsed;
+    }
+
+    public static int getHappyUsed() {
+        return happyUsed;
+    }
+
+    public static void setHappyUsed(int happyUsed) {
+        UserDetails.happyUsed = happyUsed;
+    }
 
     private String id;
 

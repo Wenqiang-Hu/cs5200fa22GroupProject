@@ -7,10 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.auth.FirebaseAuth;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
@@ -39,11 +35,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent clicky = new Intent(MainActivity.this, AtYourService.class);
             startActivity(clicky);
         }
-
-//        else if (theId == R.id.button_Stick_It) {
-//            Intent intent = new Intent(MainActivity.this, StartActivity.class);
-//            startActivity(intent);
-//        }
-
     }
 }

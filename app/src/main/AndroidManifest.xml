@@ -20,7 +20,13 @@
             android:name=".Chat"
             android:exported="false" />
         <activity
+            android:name=".AboutActivity"
+            android:exported="false" />
+        <activity
             android:name=".Users"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
             android:exported="false" />
         <activity
             android:name=".StartActivity"

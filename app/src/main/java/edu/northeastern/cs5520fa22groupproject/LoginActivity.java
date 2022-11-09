@@ -2,7 +2,6 @@ package edu.northeastern.cs5520fa22groupproject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,10 +28,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setTitle("Login");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         auth = FirebaseAuth.getInstance();
 
@@ -55,19 +50,9 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-
-                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        startActivity(intent);
-                                        Toast.makeText(LoginActivity.this, "SUCCESSFULL!!", Toast.LENGTH_SHORT).show();
                                         finish();
-
-//                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        Toast.makeText(LoginActivity.this, "SUCCESSFULL!!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(LoginActivity.this, "Login Succeed!", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(LoginActivity.this, Users.class));
-//                                        finish();
-
                                     } else {
                                         Toast.makeText(LoginActivity.this, "Authentication failed", Toast.LENGTH_SHORT).show();
                                     }

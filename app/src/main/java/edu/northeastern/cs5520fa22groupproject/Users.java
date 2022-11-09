@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,6 +33,7 @@ public class Users extends AppCompatActivity {
     TextView noUsersText;
     ArrayList<String> al = new ArrayList<>();
     int totalUsers = 0;
+    Button profile;
 
     FirebaseUser currUser = FirebaseAuth.getInstance().getCurrentUser();
     String currUID = currUser.getUid();
@@ -43,6 +45,14 @@ public class Users extends AppCompatActivity {
 
         usersList = (ListView) findViewById(R.id.usersList);
         noUsersText = (TextView) findViewById(R.id.noUsersText);
+        profile = (Button) findViewById(R.id.bt_profile);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent profileButton = new Intent(Users.this, Profile.class);
+                startActivity(profileButton);
+            }
+        });
 
         String url = "https://chatroom-c1076-default-rtdb.firebaseio.com/Users.json";
 
@@ -79,11 +89,15 @@ public class Users extends AppCompatActivity {
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     String uid = ds.child("id").getValue(String.class);
                     String name = ds.child("username").getValue(String.class);
+                    String happyUsed = ds.child("happyUsed").getValue(String.class);
+                    String sadUsed = ds.child("sadUsed").getValue(String.class);
                     if (!uid.equals(currUID)) {
                         al.add(name);
                         totalUsers++;
                     }else{
                         UserDetails.setUsername(name);
+                        UserDetails.setHappyUsed(Integer.valueOf(happyUsed));
+                        UserDetails.setSadUsed(Integer.valueOf(sadUsed));
                     }
                 }
 
