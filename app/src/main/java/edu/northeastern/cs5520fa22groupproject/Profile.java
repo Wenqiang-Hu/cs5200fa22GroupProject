@@ -26,8 +26,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Profile extends AppCompatActivity {
     DatabaseReference proRef;
-    TextView happyNum;
-    TextView sadNum;
+    TextView happyNum, sadNum, userName;
+
 
 
     @Override
@@ -36,7 +36,9 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         happyNum = findViewById(R.id.tx_happynum);
         sadNum = findViewById(R.id.tx_sadnum);
+        userName =findViewById(R.id.tx_username);
         happyNum.setText(String.valueOf(UserDetails.getHappyUsed()));
         sadNum.setText(String.valueOf(UserDetails.getSadUsed()));
+        userName.setText(UserDetails.getUsername());
     }
 }
