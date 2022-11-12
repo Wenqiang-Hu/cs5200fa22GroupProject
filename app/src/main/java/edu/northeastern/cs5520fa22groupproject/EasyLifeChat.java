@@ -53,7 +53,7 @@ public class EasyLifeChat extends AppCompatActivity {
         listView.setAdapter(messageAdapter);
 
 
-        ref = FirebaseDatabase.getInstance().getReference("Messages/" + UserDetails.getUsername() + "_" + UserDetails.getChatWith());
+        ref = FirebaseDatabase.getInstance().getReference("EasyLife/Messages/" + UserDetails.getUsername() + "_" + UserDetails.getChatWith());
 
 
         sendHappy = (ImageView) findViewById(R.id.imageView);
@@ -115,19 +115,19 @@ public class EasyLifeChat extends AppCompatActivity {
         sendHappy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseDatabase.getInstance().getReference().child("Messages").
-                        child(UserDetails.getUsername()+"_"+UserDetails.getChatWith()).
+                FirebaseDatabase.getInstance().getReference("EasyLife").child("Messages").
+                        child(EasyLifeUserDetails.getUsername()+"_"+EasyLifeUserDetails.getChatWith()).
                         push().setValue(
                         new Message(
                                 "happy",
-                                UserDetails.getUsername()
+                                EasyLifeUserDetails.getUsername()
                         ));
-                FirebaseDatabase.getInstance().getReference().child("Messages").
-                        child(UserDetails.getChatWith() +"_"+UserDetails.getUsername()).
+                FirebaseDatabase.getInstance().getReference("EasyLife").child("Messages").
+                        child(EasyLifeUserDetails.getChatWith() +"_"+EasyLifeUserDetails.getUsername()).
                         push().setValue(
                                 new Message(
                                         "happy",
-                                        UserDetails.getUsername()
+                                        EasyLifeUserDetails.getUsername()
                                 ));
             }
         });
@@ -136,18 +136,18 @@ public class EasyLifeChat extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase.getInstance().getReference().child("Messages").
-                        child(UserDetails.getUsername()+"_"+UserDetails.getChatWith()).
+                        child(EasyLifeUserDetails.getUsername()+"_"+EasyLifeUserDetails.getChatWith()).
                         push().setValue(
-                                new Message(
+                                new EasyLifeMessage(
                                         "sad",
-                                        UserDetails.getUsername()
+                                        EasyLifeUserDetails.getUsername()
                                 ));
                 FirebaseDatabase.getInstance().getReference().child("Messages").
-                        child(UserDetails.getChatWith()+ "_"+UserDetails.getUsername()).
+                        child(EasyLifeUserDetails.getChatWith()+ "_"+EasyLifeUserDetails.getUsername()).
                         push().setValue(
-                                new Message(
+                                new EasyLifeMessage(
                                         "sad",
-                                        UserDetails.getUsername()
+                                        EasyLifeUserDetails.getUsername()
                                 ));
             }
         });

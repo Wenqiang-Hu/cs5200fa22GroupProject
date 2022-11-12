@@ -44,7 +44,7 @@ public class EasyLifeUsers extends AppCompatActivity {
         usersList = (ListView) findViewById(R.id.usersList);
         noUsersText = (TextView) findViewById(R.id.noUsersText);
 
-        String url = "https://chatroom-c1076-default-rtdb.firebaseio.com/EasyLifeUsers.json";
+        String url = "https://chatroom-c1076-default-rtdb.firebaseio.com/EasyLife/Users.json";
 
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -71,9 +71,9 @@ public class EasyLifeUsers extends AppCompatActivity {
     }
 
     public void  doOnSuccess(String s) {
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("EasyLife");
         System.out.println("======>   " + rootRef);
-        DatabaseReference usersdRef = rootRef.child("EasyLifeUsers");
+        DatabaseReference usersdRef = rootRef.child("Users");
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

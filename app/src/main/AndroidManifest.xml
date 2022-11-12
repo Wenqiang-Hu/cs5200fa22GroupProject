@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Cs5520fa22GroupProject"
         tools:targetApi="31">
         <activity
+            android:name=".EasyLifeChatroomLobby"
+            android:exported="false" />
+        <activity
             android:name=".AboutActivity"
             android:exported="false" />
         <activity

@@ -70,7 +70,7 @@ public class EasyLifeRegisterActivity extends AppCompatActivity {
                             assert firebaseUser != null;
                             String userid = firebaseUser.getUid();
 
-                            reference = FirebaseDatabase.getInstance().getReference("EasyLifeUsers").child(userid);
+                            reference = FirebaseDatabase.getInstance().getReference("EasyLife/Users").child(userid);
                             HashMap<String, String> hashMap = new HashMap<>();
                             hashMap.put("id", userid);
                             hashMap.put("username", username);
