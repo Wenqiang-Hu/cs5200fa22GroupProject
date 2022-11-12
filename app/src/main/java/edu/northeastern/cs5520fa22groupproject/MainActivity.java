@@ -7,10 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.auth.FirebaseAuth;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
@@ -22,6 +18,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button atYourService = findViewById((R.id.atyourservice));
         atYourService.setOnClickListener(this);
 
+        Button easyLifeButton = findViewById((R.id.easylife));
+        easyLifeButton.setOnClickListener(this);
+
         Button stickButton = findViewById(R.id.button_Stick_It);
         stickButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(stickButton);
             }
         });
+
+
 
         Button aboutMe = findViewById((R.id.aboutButton));
         aboutMe.setOnClickListener(new View.OnClickListener(){
@@ -47,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (theId == R.id.atyourservice) {
             Intent clicky = new Intent(MainActivity.this, AtYourService.class);
             startActivity(clicky);
+        } else if (theId == R.id.easylife) {
+            Intent easyLieIntent = new Intent(MainActivity.this, EasyLifeStartActivity.class);
+            startActivity(easyLieIntent);
         }
 
     }
