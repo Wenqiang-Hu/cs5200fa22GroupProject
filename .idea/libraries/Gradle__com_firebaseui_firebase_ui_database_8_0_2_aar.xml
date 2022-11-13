@@ -1,9 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: com.firebaseui:firebase-ui-database:8.0.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/3c737af17798f329548b1f490408f243/transformed/firebase-ui-database-8.0.2/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3c737af17798f329548b1f490408f243/transformed/firebase-ui-database-8.0.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3c737af17798f329548b1f490408f243/transformed/firebase-ui-database-8.0.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/dce83f10a40052be3101793bf2e057c0/transformed/jetified-firebase-ui-database-8.0.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/dce83f10a40052be3101793bf2e057c0/transformed/jetified-firebase-ui-database-8.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/dce83f10a40052be3101793bf2e057c0/transformed/jetified-firebase-ui-database-8.0.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebaseui/firebase-ui-database/8.0.2/44e510b2df4a89881b1506ce9389ed9816610e56/firebase-ui-database-8.0.2-javadoc.jar!/" />

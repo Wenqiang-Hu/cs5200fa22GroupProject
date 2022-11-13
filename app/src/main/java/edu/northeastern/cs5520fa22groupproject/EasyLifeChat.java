@@ -23,9 +23,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-import edu.northeastern.cs5520fa22groupproject.MessageAdapter;
-import edu.northeastern.cs5520fa22groupproject.R;
-import edu.northeastern.cs5520fa22groupproject.UserDetails;
+import edu.northeastern.cs5520fa22groupproject.model.EasyLifeMessage;
 import edu.northeastern.cs5520fa22groupproject.model.Message;
 
 public class EasyLifeChat extends AppCompatActivity {

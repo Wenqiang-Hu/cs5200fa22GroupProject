@@ -3,6 +3,7 @@ package edu.northeastern.cs5520fa22groupproject;
 public class EasyLifeUserDetails {
     static String username = "";
     static String chatWith = "";
+    static String imageURL = "default";
 
     private String id;
 
@@ -33,5 +34,9 @@ public class EasyLifeUserDetails {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public static String getImageURL() {
+        return imageURL;
     }
 }

@@ -49,9 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent clicky = new Intent(MainActivity.this, AtYourService.class);
             startActivity(clicky);
         } else if (theId == R.id.easylife) {
-            Intent easyLieIntent = new Intent(MainActivity.this, EasyLifeStartActivity.class);
-            startActivity(easyLieIntent);
+            Intent easyLifeIntent = new Intent(MainActivity.this, EasyLifeStartActivity.class);
+            startActivity(easyLifeIntent);
         }
-
     }
 }

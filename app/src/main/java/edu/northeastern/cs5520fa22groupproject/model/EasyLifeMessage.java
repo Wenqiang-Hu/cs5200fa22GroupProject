@@ -1,4 +1,4 @@
-package edu.northeastern.cs5520fa22groupproject;
+package edu.northeastern.cs5520fa22groupproject.model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

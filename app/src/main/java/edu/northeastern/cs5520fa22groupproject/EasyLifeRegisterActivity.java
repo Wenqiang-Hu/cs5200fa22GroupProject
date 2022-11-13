@@ -34,7 +34,7 @@ public class EasyLifeRegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_easylife_register);
 
-        username = findViewById(R.id.username);
+        username = findViewById(R.id.username_easylife);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btn_register = findViewById(R.id.btn_register);
@@ -80,7 +80,7 @@ public class EasyLifeRegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Intent intent = new Intent(EasyLifeRegisterActivity.this, MainActivity.class);
+                                        Intent intent = new Intent(EasyLifeRegisterActivity.this, EasyLifeMainActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
                                         finish();

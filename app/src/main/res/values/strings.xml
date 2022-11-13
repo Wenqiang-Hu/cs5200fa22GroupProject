@@ -8,4 +8,6 @@
     <string name="what_is_your_favor_color">What is your favor color?</string>
     <string name="submit">Submit</string>
     <string name="name_wenqiang_hu_nemail_hu_wenqi_northeastern_edu">name_wenqiang_hu_nemail_hu_wenqi_northeastern_edu</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
