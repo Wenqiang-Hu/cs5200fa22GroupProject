@@ -3,10 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/sportRoom_logo"
         android:layout_width="50dp"
@@ -19,10 +15,86 @@
         android:id="@+id/sportRoom_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/sportRoom_logo"
         android:layout_toRightOf="@id/sportRoom_logo"
         android:text="Love Sport"
-        android:textSize="28sp" />
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/sportRoom_newMessage"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:layout_toEndOf="@id/sportRoom_logo"-->
+<!--        android:layout_toRightOf="@id/sportRoom_logo"-->
+<!--        android:text="The latest message"-->
+<!--        android:textSize="12sp" />-->
+
+
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        android:id="@+id/musicRoom_logo"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginTop="70dp"-->
+<!--        android:src="@drawable/easylife_chatroom_music" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/musicRoom_name"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:layout_marginTop="70dp"-->
+<!--        android:layout_toEndOf="@id/musicRoom_logo"-->
+<!--        android:layout_toRightOf="@id/musicRoom_logo"-->
+<!--        android:text="Love Music"-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="20sp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/musicRoom_newMessage"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        android:layout_toEndOf="@id/musicRoom_logo"-->
+<!--        android:layout_toRightOf="@id/musicRoom_logo"-->
+<!--        android:text="The latest message"-->
+<!--        android:textSize="12sp" />-->
+
+
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        android:id="@+id/gameRoom_logo"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginTop="130dp"-->
+<!--        android:src="@drawable/easylife_chatroom_game" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/gameRoom_name"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:layout_marginTop="130dp"-->
+<!--        android:layout_toEndOf="@id/musicRoom_logo"-->
+<!--        android:layout_toRightOf="@id/musicRoom_logo"-->
+<!--        android:text="Love Music"-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="20sp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/gameRoom_newMessage"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:layout_marginTop="160dp"-->
+<!--        android:layout_toEndOf="@id/gameRoom_logo"-->
+<!--        android:layout_toRightOf="@id/gameRoom_logo"-->
+<!--        android:text="The latest message"-->
+<!--        android:textSize="12sp" />-->
 </RelativeLayout>
