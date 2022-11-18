@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public class EasyLifeChatsFragment extends Fragment {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_easy_life_chats, container, false);
 
+
         View view = inflater.inflate(R.layout.fragment_easy_life_chats, container, false);
 
         recyclerView = view.findViewById(R.id.recycler_view);
@@ -46,19 +48,24 @@ public class EasyLifeChatsFragment extends Fragment {
 
         mChatroom = new ArrayList<>();
 
-        readUsers();
+        readChatrooms();
         return view;
     }
 
-    public void readUsers() {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Chatroom");
-
+    public void readChatrooms() {
+        //DatabaseReference reference = FirebaseDatabase.getInstance().getReference("/EasyLife/Chatroom");
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference  reference = rootRef.child("EasyLife").child("Chatroom");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mChatroom.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Chatroom chatroom = snapshot.getValue(Chatroom.class);
+
+                    String chatroomIntro = snapshot.child("intro").getValue(String.class);
+                    String chatroomLogo = snapshot.child("logo").getValue(String.class);
+                    String chatroomname = snapshot.child("roomname").getValue(String.class);
+                    Chatroom chatroom = new Chatroom(chatroomIntro, chatroomLogo, chatroomname);
 
                     mChatroom.add(chatroom);
                 }
