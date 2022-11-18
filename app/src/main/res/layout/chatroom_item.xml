@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/sportRoom_logo"
+        android:id="@+id/chatRoom_logo"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
@@ -12,13 +12,13 @@
         android:src="@drawable/easylife_chatroom_sport" />
 
     <TextView
-        android:id="@+id/sportRoom_name"
+        android:id="@+id/chatRoom_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
-        android:layout_toEndOf="@id/sportRoom_logo"
-        android:layout_toRightOf="@id/sportRoom_logo"
+        android:layout_toEndOf="@id/chatRoom_logo"
+        android:layout_toRightOf="@id/chatRoom_logo"
         android:text="Love Sport"
         android:textColor="#000000"
         android:textSize="20sp" />
