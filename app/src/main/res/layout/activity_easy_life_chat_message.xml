@@ -8,12 +8,12 @@
     tools:context=".EasyLifeMessageActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/bar_layout"
+        android:id="@+id/bar_layout_easylife"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar_easylife"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"

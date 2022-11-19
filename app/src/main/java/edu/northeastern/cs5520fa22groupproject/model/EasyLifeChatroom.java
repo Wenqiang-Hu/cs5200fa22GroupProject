@@ -13,6 +13,9 @@ public class EasyLifeChatroom {
         this.roomname = roomname;
     }
 
+    public EasyLifeChatroom() {
+    }
+
     public String getId() {
         return id;
     }
