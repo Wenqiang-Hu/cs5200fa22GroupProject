@@ -24,13 +24,12 @@
             android:name=".EasyLifeMainActivity"
             android:exported="false" />
         <activity
-            android:name=".EasyLifeChatroomLobby"
-            android:exported="false" />
-        <activity
             android:name=".AboutActivity"
             android:exported="false" />
         <activity
             android:name=".EasyLifeChat"
+            android:exported="false" />
+        <activity android:name=".EasyLifeMakingPost"
             android:exported="false" />
         <activity
             android:name=".Chat"

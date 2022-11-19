@@ -39,7 +39,6 @@ public class EasyLifeChatroomAdapter extends RecyclerView.Adapter<EasyLifeChatro
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         EasyLifeChatroom easyLifeChatroom = mEasyLifeChatrooms.get(position);
         String tmp = easyLifeChatroom.getLogoPath();
-
         holder.chatroom_name.setText(easyLifeChatroom.getRoomname());
         holder.chatroom_intro.setText(easyLifeChatroom.getIntro());
 
