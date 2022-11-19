@@ -7,12 +7,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,16 +20,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.northeastern.cs5520fa22groupproject.Adapter.ChatroomAdapter;
+import edu.northeastern.cs5520fa22groupproject.Adapter.EasyLifeChatroomAdapter;
 import edu.northeastern.cs5520fa22groupproject.R;
-import edu.northeastern.cs5520fa22groupproject.model.Chatroom;
+import edu.northeastern.cs5520fa22groupproject.model.EasyLifeChatroom;
 
 
 public class EasyLifeChatsFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private ChatroomAdapter chatroomAdapter;
-    private List<Chatroom> mChatroom;
+    private EasyLifeChatroomAdapter easyLifeChatroomAdapter;
+    private List<EasyLifeChatroom> mEasyLifeChatroom;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,7 +44,7 @@ public class EasyLifeChatsFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        mChatroom = new ArrayList<>();
+        mEasyLifeChatroom = new ArrayList<>();
 
         readChatrooms();
         return view;
@@ -59,19 +57,20 @@ public class EasyLifeChatsFragment extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                mChatroom.clear();
+                mEasyLifeChatroom.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
                     String chatroomIntro = snapshot.child("intro").getValue(String.class);
                     String chatroomLogo = snapshot.child("logo").getValue(String.class);
                     String chatroomname = snapshot.child("roomname").getValue(String.class);
-                    Chatroom chatroom = new Chatroom(chatroomIntro, chatroomLogo, chatroomname);
+                    String chatroomId = snapshot.child("id").getValue(String.class);
+                    EasyLifeChatroom easyLifeChatroom = new EasyLifeChatroom(chatroomId, chatroomIntro, chatroomLogo, chatroomname);
 
-                    mChatroom.add(chatroom);
+                    mEasyLifeChatroom.add(easyLifeChatroom);
                 }
 
-                chatroomAdapter = new ChatroomAdapter(getContext(), mChatroom);
-                recyclerView.setAdapter(chatroomAdapter);
+                easyLifeChatroomAdapter = new EasyLifeChatroomAdapter(getContext(), mEasyLifeChatroom);
+                recyclerView.setAdapter(easyLifeChatroomAdapter);
             }
 
             @Override
