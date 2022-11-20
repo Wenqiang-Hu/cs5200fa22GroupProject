@@ -2,9 +2,7 @@ package edu.northeastern.cs5520fa22groupproject;
 
 public class EasyLifeUserDetails {
     static String username = "";
-    static String chatWith = "";
     static String imageURL = "default";
-
     private String id;
 
     public EasyLifeUserDetails(String username, String id) {
@@ -18,14 +16,6 @@ public class EasyLifeUserDetails {
 
     public static void setUsername(String username) {
         EasyLifeUserDetails.username = username;
-    }
-
-    public static String getChatWith() {
-        return chatWith;
-    }
-
-    public static void setChatWith(String chatWith) {
-        EasyLifeUserDetails.chatWith = chatWith;
     }
 
     public String getId() {

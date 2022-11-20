@@ -40,7 +40,7 @@ public class EasyLifeChatsFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_easy_life_chats, container, false);
 
-        recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView = view.findViewById(R.id.recycler_view_easylife_chat_lobby);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -53,7 +53,7 @@ public class EasyLifeChatsFragment extends Fragment {
     public void readChatrooms() {
         //DatabaseReference reference = FirebaseDatabase.getInstance().getReference("/EasyLife/Chatroom");
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference  reference = rootRef.child("EasyLife").child("Chatroom");
+        DatabaseReference reference = rootRef.child("EasyLife").child("Chatroom");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

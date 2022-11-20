@@ -35,6 +35,7 @@ import java.util.ArrayList;
 
 import edu.northeastern.cs5520fa22groupproject.Fragments.EasyLifeChatsFragment;
 import edu.northeastern.cs5520fa22groupproject.Fragments.EasyLifeUsersFragment;
+import edu.northeastern.cs5520fa22groupproject.model.EasyLifeChat2;
 
 public class EasyLifeMainActivity extends AppCompatActivity {
 
@@ -62,6 +63,11 @@ public class EasyLifeMainActivity extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String cur_username = dataSnapshot.child("username").getValue(String.class);
+//                System.out.println("   ======  cur_username ===== " + cur_username);
+                EasyLifeUserDetails.setUsername(cur_username);
+//                System.out.println("   ======  EasyLifeUserDetails.getUsername() ===== " + EasyLifeUserDetails.getUsername());
+
 //                EasyLifeUserDetails user = dataSnapshot.getValue(EasyLifeUserDetails.class);
 //                username.setText(user.getUsername());
 //                if (user.getImageURL().equals("default")){
