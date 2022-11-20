@@ -2,13 +2,13 @@ package edu.northeastern.cs5520fa22groupproject.model;
 
 public class EasyLifeChat2 {
     private String senderId;
-//    private String senderUserName;
+    private String username;
     private String message;
 
-    public EasyLifeChat2(String senderId, String message) {
+    public EasyLifeChat2(String message, String senderId, String username) {
         this.senderId = senderId;
-//        this.senderUserName = senderUserName;
         this.message = message;
+        this.username = username;
     }
 
     public EasyLifeChat2() {
@@ -22,13 +22,13 @@ public class EasyLifeChat2 {
         this.senderId = senderId;
     }
 
-//    public String getSenderUserName() {
-//        return senderUserName;
-//    }
-//
-//    public void setSenderUserName(String senderUserName) {
-//        this.senderUserName = senderUserName;
-//    }
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getMessage() {
         return message;

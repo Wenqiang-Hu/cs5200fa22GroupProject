@@ -149,6 +149,8 @@ public class EasyLifeMessageActivity extends AppCompatActivity {
         hashMap.put("message", message);
 //        hashMap.put("isseen", false);
 
+        hashMap.put("username", EasyLifeUserDetails.getUsername());
+
         reference.child("/EasyLife/Chatroom/" + chatId + "/message").push().setValue(hashMap);
     }
 
@@ -162,10 +164,8 @@ public class EasyLifeMessageActivity extends AppCompatActivity {
                 mchat.clear();
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
                     EasyLifeChat2 chat = snapshot.getValue(EasyLifeChat2.class);
-                    System.out.print("====== chat ====== "+ chat.getSenderId());
                     mchat.add(chat);
                 }
-
                 easyLifeMessageAdapter = new EasyLifeMessageAdapter(EasyLifeMessageActivity.this, mchat);
                 recyclerView.setAdapter((easyLifeMessageAdapter));
             }

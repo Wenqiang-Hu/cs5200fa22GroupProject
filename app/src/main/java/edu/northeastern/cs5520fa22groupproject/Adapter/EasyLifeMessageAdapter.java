@@ -1,7 +1,6 @@
 package edu.northeastern.cs5520fa22groupproject.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 
-import edu.northeastern.cs5520fa22groupproject.EasyLifeMessageActivity;
 import edu.northeastern.cs5520fa22groupproject.R;
 import edu.northeastern.cs5520fa22groupproject.model.EasyLifeChat2;
 import edu.northeastern.cs5520fa22groupproject.model.EasyLifeChatroom;
@@ -55,6 +53,7 @@ public class EasyLifeMessageAdapter extends RecyclerView.Adapter<EasyLifeMessage
         EasyLifeChat2 chat = mChat.get(position);
         holder.show_message.setText(chat.getMessage());
         holder.profile_image.setImageResource(R.mipmap.ic_launcher);
+        holder.username_in_chatroom.setText(chat.getUsername());
     }
 
     @Override
@@ -65,6 +64,7 @@ public class EasyLifeMessageAdapter extends RecyclerView.Adapter<EasyLifeMessage
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView show_message;
         public ImageView profile_image;
+        public TextView username_in_chatroom;
 //        public TextView txt_seen;
 
         public ViewHolder(View itemView) {
@@ -72,6 +72,7 @@ public class EasyLifeMessageAdapter extends RecyclerView.Adapter<EasyLifeMessage
 
             show_message = itemView.findViewById(R.id.show_message);
             profile_image = itemView.findViewById(R.id.profile_image);
+            username_in_chatroom = itemView.findViewById(R.id.username_inside_room);
 //            txt_seen = itemView.findViewById(R.id.txt_seen);
         }
     }
@@ -79,8 +80,6 @@ public class EasyLifeMessageAdapter extends RecyclerView.Adapter<EasyLifeMessage
     @Override
     public int getItemViewType(int position) {
         fuser = FirebaseAuth.getInstance().getCurrentUser();
-        System.out.println("-------- position -------- " + position);
-        System.out.println("-------- mchat -------- " + mChat.size());
         if (mChat.get(position).getSenderId().equals(fuser.getUid())) {
             return MSG_TYPE_RIGHT;
         } else {
