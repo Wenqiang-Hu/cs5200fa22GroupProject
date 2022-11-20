@@ -29,15 +29,9 @@
         <activity
             android:name=".AboutActivity"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".EasyLifeChat"-->
-<!--            android:exported="false" />-->
         <activity
             android:name=".Chat"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".EasyLifeUsers"-->
-<!--            android:exported="false" />-->
         <activity
             android:name=".Users"
             android:exported="false" />
@@ -75,6 +69,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
