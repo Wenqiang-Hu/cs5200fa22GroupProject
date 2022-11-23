@@ -34,6 +34,7 @@ import com.google.firebase.database.DatabaseError;
 import java.util.ArrayList;
 
 import edu.northeastern.cs5520fa22groupproject.Fragments.EasyLifeChatsFragment;
+import edu.northeastern.cs5520fa22groupproject.Fragments.EasyLifeProfileFragment;
 import edu.northeastern.cs5520fa22groupproject.Fragments.EasyLifeUsersFragment;
 import edu.northeastern.cs5520fa22groupproject.model.EasyLifeChat2;
 
@@ -90,6 +91,7 @@ public class EasyLifeMainActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(new EasyLifeChatsFragment(), "EasyLifeChats");
         viewPagerAdapter.addFragment(new EasyLifeUsersFragment(), "EasyLifeUsers");
+        viewPagerAdapter.addFragment(new EasyLifeProfileFragment(), "EasyLifeProfile");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
