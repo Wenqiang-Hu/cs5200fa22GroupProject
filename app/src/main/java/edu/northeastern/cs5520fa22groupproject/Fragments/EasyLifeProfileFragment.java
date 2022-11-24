@@ -137,7 +137,7 @@ public class EasyLifeProfileFragment extends Fragment {
                         Uri downloadUri = task.getResult();
                         String mUri = downloadUri.toString();
 
-                        reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+                        reference = FirebaseDatabase.getInstance().getReference("/EasyLife/Users").child(firebaseUser.getUid());
                         HashMap<String, Object> map = new HashMap<>();
                         map.put("imageURL", ""+mUri);
                         reference.updateChildren(map);
