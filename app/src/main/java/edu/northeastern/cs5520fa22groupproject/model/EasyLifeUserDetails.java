@@ -1,13 +1,17 @@
-package edu.northeastern.cs5520fa22groupproject;
+package edu.northeastern.cs5520fa22groupproject.model;
 
 public class EasyLifeUserDetails {
     static String username = "";
     static String imageURL = "default";
     private String id;
 
-    public EasyLifeUserDetails(String username, String id) {
+    public EasyLifeUserDetails(String id, String url, String username) {
         this.id = id;
         this.username = username;
+        this.imageURL = url;
+    }
+
+    public EasyLifeUserDetails() {
     }
 
     public static String getUsername() {

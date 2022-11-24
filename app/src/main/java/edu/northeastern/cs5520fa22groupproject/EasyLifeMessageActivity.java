@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +29,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import edu.northeastern.cs5520fa22groupproject.Adapter.EasyLifeMessageAdapter;
 import edu.northeastern.cs5520fa22groupproject.model.EasyLifeChat2;
 import edu.northeastern.cs5520fa22groupproject.model.EasyLifeChatroom;
+import edu.northeastern.cs5520fa22groupproject.model.EasyLifeUserDetails;
 
 public class EasyLifeMessageActivity extends AppCompatActivity {
 

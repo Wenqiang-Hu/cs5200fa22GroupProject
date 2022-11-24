@@ -5,7 +5,6 @@ package edu.northeastern.cs5520fa22groupproject;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -13,7 +12,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 //import android.support.v4.app.FragmentManager;
-import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.ValueEventListener;
 
@@ -36,7 +34,7 @@ import java.util.ArrayList;
 import edu.northeastern.cs5520fa22groupproject.Fragments.EasyLifeChatsFragment;
 import edu.northeastern.cs5520fa22groupproject.Fragments.EasyLifeProfileFragment;
 import edu.northeastern.cs5520fa22groupproject.Fragments.EasyLifeUsersFragment;
-import edu.northeastern.cs5520fa22groupproject.model.EasyLifeChat2;
+import edu.northeastern.cs5520fa22groupproject.model.EasyLifeUserDetails;
 
 public class EasyLifeMainActivity extends AppCompatActivity {
 
@@ -91,7 +89,7 @@ public class EasyLifeMainActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(new EasyLifeChatsFragment(), "EasyLifeChats");
         viewPagerAdapter.addFragment(new EasyLifeUsersFragment(), "EasyLifeUsers");
-        viewPagerAdapter.addFragment(new EasyLifeProfileFragment(), "EasyLifeProfile");
+        viewPagerAdapter.addFragment(new EasyLifeProfileFragment(), "Profile");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
