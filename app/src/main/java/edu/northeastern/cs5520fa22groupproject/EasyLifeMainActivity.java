@@ -64,12 +64,6 @@ public class EasyLifeMainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //                EasyLifeUserDetails user = dataSnapshot.getValue(EasyLifeUserDetails.class);
 //                username.setText(user.getUsername());
-//                if (user.getImageURL().equals("default")){
-//                    profile_image.setImageResource(R.mipmap.ic_launcher);
-//                } else {
-//                    //change this
-//                    Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
-//                }
             }
 
             @Override

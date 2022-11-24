@@ -10,6 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.List;
 
 import edu.northeastern.cs5520fa22groupproject.R;
@@ -35,9 +38,10 @@ public class EasyLifePostsAdapter extends RecyclerView.Adapter<EasyLifePostsAdap
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Post post = posts.get(position);
         String temp = post.getIcon();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("/EasyLife/Users/" + post.getUser());
+
         holder.user.setText(post.getUser());
         holder.context.setText(post.getContext());
-        System.out.println("post +++++++" + post.getContext());
         holder.icon.setImageResource(R.drawable.default_logo);
     }
 
