@@ -1,7 +1,9 @@
 package edu.northeastern.cs5520fa22groupproject.Fragments;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,6 +23,7 @@ import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -52,7 +55,11 @@ public class EasyLifeProfileFragment extends Fragment {
     StorageReference storageReference;
     private static final int IMAGE_REQUEST = 1;
     private Uri imageUri;
+    private String myUri = "";
     private StorageTask uploadTask;
+    FloatingActionButton flaBtn;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,8 +69,10 @@ public class EasyLifeProfileFragment extends Fragment {
 
         image_profile = view.findViewById(R.id.profile_image);
         username = view.findViewById(R.id.username);
+        flaBtn = view.findViewById(R.id.fabBtn);
 
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
+
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         //System.out.println("----------id:" + firebaseUser.getUid());
@@ -94,8 +103,36 @@ public class EasyLifeProfileFragment extends Fragment {
                 openImage();
             }
         });
+        
+        flaBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showEditProfileDialog();
+            }
+        });
 
         return view;
+    }
+
+    private void showEditProfileDialog() {
+        String options[] = {"Edit Name", "Edit Photo", "Edit Location"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        builder.setTitle("Choose Action");
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (which == 0) {
+
+                } else if (which == 1) {
+
+                } else if (which == 2) {
+
+                }
+            }
+        });
+
+        builder.create().show();
     }
 
     private void openImage() {

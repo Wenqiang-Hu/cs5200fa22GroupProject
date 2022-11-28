@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,12 +24,12 @@
                 android:textStyle="bold"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:id="@+id/profile_image"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
-                android:src="@drawable/default_logo"/>
+                android:src="@drawable/default_logo" />
 
             <TextView
                 android:id="@+id/username"
@@ -45,6 +46,17 @@
 
 
         </RelativeLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/submit"
+            android:src="@drawable/ic_edit"
+            app:backgroundTint="#9C27B0" />
 
     </androidx.cardview.widget.CardView>
 
