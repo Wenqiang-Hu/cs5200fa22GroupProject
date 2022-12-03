@@ -65,6 +65,7 @@ public class EasyLifeMainActivity extends AppCompatActivity {
                 String cur_username = dataSnapshot.child("username").getValue(String.class);
 //                System.out.println("   ======  cur_username ===== " + cur_username);
                 EasyLifeUserDetails.setUsername(cur_username);
+                EasyLifeUserDetails.setImageURL(dataSnapshot.child("imageURL").getValue(String.class));
 //                System.out.println("   ======  EasyLifeUserDetails.getUsername() ===== " + EasyLifeUserDetails.getUsername());
 
 //                EasyLifeUserDetails user = dataSnapshot.getValue(EasyLifeUserDetails.class);

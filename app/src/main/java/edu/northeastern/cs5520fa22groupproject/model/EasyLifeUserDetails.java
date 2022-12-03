@@ -30,6 +30,10 @@ public class EasyLifeUserDetails {
         this.id = id;
     }
 
+    public static void setImageURL(String imageURL) {
+        EasyLifeUserDetails.imageURL = imageURL;
+    }
+
     public static String getImageURL() {
         return imageURL;
     }

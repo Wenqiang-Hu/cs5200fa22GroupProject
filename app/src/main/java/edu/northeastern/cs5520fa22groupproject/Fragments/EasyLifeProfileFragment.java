@@ -87,6 +87,7 @@ public class EasyLifeProfileFragment extends Fragment {
                 if (user.getImageURL().equals("default")) {
                     image_profile.setImageResource(R.mipmap.ic_launcher);
                 } else {
+
                     Glide.with(getContext()).load(user.getImageURL()).into(image_profile);
                 }
             }
@@ -177,6 +178,7 @@ public class EasyLifeProfileFragment extends Fragment {
                         reference = FirebaseDatabase.getInstance().getReference("/EasyLife/Users").child(firebaseUser.getUid());
                         HashMap<String, Object> map = new HashMap<>();
                         map.put("imageURL", ""+mUri);
+                        EasyLifeUserDetails.setImageURL(mUri);
                         reference.updateChildren(map);
 
                         pd.dismiss();
