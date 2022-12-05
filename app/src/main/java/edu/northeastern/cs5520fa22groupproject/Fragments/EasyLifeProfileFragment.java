@@ -11,10 +11,13 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +25,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -84,7 +88,10 @@ public class EasyLifeProfileFragment extends Fragment {
 
                 EasyLifeUserDetails user = dataSnapshot.getValue(EasyLifeUserDetails.class);
                 username.setText(user.getUsername());
+
+
                 if (user.getImageURL().equals("default")) {
+
                     image_profile.setImageResource(R.mipmap.ic_launcher);
                 } else {
 
@@ -116,7 +123,7 @@ public class EasyLifeProfileFragment extends Fragment {
     }
 
     private void showEditProfileDialog() {
-        String options[] = {"Edit Name", "Edit Photo", "Edit Location"};
+        String options[] = {"Edit Name", "Edit Photo"};
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle("Choose Action");
@@ -124,12 +131,71 @@ public class EasyLifeProfileFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (which == 0) {
-
+                    updateName("username");
                 } else if (which == 1) {
-
+                    openImage();
                 } else if (which == 2) {
 
                 }
+            }
+        });
+
+        builder.create().show();
+    }
+
+    private void updateName(String name) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Updates " + name); // update name
+
+        //set layout of dialog
+        LinearLayout linearLayout = new LinearLayout(getActivity());
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.setPadding(10, 10, 10, 10);
+
+        //add edit text
+        EditText editText = new EditText(getActivity());
+        editText.setHint("Enter " + name);
+        linearLayout.addView(editText);
+
+        builder.setView(linearLayout);
+
+        //add button in dialog to update
+        builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //input text from edit text
+                String value = editText.getText().toString().trim();
+                if (!TextUtils.isEmpty(value)) {
+                    HashMap<String, Object> result = new HashMap<String, Object>();
+                    result.put(name, value);
+                    EasyLifeUserDetails.setUsername(value);
+
+                    reference.updateChildren(result)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(getActivity(), "Updated...", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(getActivity(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+                else {
+                    Toast.makeText(getActivity(), "Please Enter" + name, Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+
+        //add button in dialog to cancel
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
             }
         });
 

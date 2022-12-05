@@ -4,6 +4,7 @@ public class EasyLifeUserDetails {
     static String username = "";
     static String imageURL = "default";
     private String id;
+    private String location = "";
 
     public EasyLifeUserDetails(String id, String url, String username) {
         this.id = id;
@@ -11,7 +12,22 @@ public class EasyLifeUserDetails {
         this.imageURL = url;
     }
 
+    public EasyLifeUserDetails(String id, String url, String username, String location) {
+        this.id = id;
+        this.username = username;
+        this.imageURL = url;
+        this.location = location;
+    }
+
     public EasyLifeUserDetails() {
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getLocation() {
+        return location;
     }
 
     public static String getUsername() {
