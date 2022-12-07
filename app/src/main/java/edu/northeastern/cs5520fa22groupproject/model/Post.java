@@ -4,11 +4,13 @@ public class Post {
     String user;
     String context;
     String icon;
+    String location;
 
-    public Post(String user, String context, String icon) {
+    public Post(String user, String context, String icon, String location) {
         this.user = user;
         this.context = context;
         this.icon = icon;
+        this.location = location;
     }
 
     public Post() {
@@ -24,6 +26,14 @@ public class Post {
 
     public String getContext() {
         return context;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public void setContext(String context) {

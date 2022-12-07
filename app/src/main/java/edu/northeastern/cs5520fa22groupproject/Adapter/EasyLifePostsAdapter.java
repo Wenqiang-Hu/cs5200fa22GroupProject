@@ -44,6 +44,7 @@ public class EasyLifePostsAdapter extends RecyclerView.Adapter<EasyLifePostsAdap
 
         holder.user.setText(post.getUser());
         holder.context.setText(post.getContext());
+        holder.location.setText(post.getLocation());
         if (holder.icon.equals("default")) {
 
             holder.icon.setImageResource(R.mipmap.ic_launcher);
@@ -60,10 +61,12 @@ public class EasyLifePostsAdapter extends RecyclerView.Adapter<EasyLifePostsAdap
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView user;
         public TextView context;
+        public TextView location;
         public ImageView icon;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            location = itemView.findViewById(R.id.tv_post_location);
             user = itemView.findViewById(R.id.tv_post_user);
             context = itemView.findViewById(R.id.tv_post_context);
             icon = itemView.findViewById(R.id.image_user_icon);

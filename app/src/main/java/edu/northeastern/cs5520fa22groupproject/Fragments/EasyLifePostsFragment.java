@@ -64,9 +64,8 @@ public class EasyLifePostsFragment extends Fragment {
                     String user = snapshot.child("user").getValue(String.class);
                     String icon = snapshot.child("icon").getValue(String.class);
                     String context = snapshot.child("context").getValue(String.class);
-
-                    Post post  = new Post(user, context, icon);
-
+                    String location = snapshot.child("location").getValue(String.class);
+                    Post post  = new Post(user, context, icon, location);
                     postList.add(post);
                 }
 
