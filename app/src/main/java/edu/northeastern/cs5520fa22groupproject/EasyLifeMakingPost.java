@@ -51,7 +51,7 @@ public class EasyLifeMakingPost extends AppCompatActivity {
     CheckBox checkBox;
     FirebaseUser user;
     LocationRequest locationRequest;
-    String temp_location = "earth";
+    String temp_location = "Earth";
     double latitude;
     double longitude;
 
@@ -100,14 +100,13 @@ public class EasyLifeMakingPost extends AppCompatActivity {
                                                     try {
                                                         List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
 
-                                                        temp_location = addresses.get(0).getLocality();
+                                                        temp_location = addresses.get(0).getAddressLine(0);
                                                         Log.d("Location =====", temp_location);
 
                                                         HashMap<String, Object> map = new HashMap<>();
                                                         map.put("context", context);
                                                         map.put("icon", EasyLifeUserDetails.getImageURL());
                                                         map.put("user", EasyLifeUserDetails.getUsername());
-                                                        Log.d("Location saving in database=====", temp_location);
                                                         map.put("location", temp_location);
                                                         databaseReference.child("Posts").push().setValue(map);
                                                         finish();

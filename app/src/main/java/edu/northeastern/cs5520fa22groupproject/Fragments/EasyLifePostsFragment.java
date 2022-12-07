@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import edu.northeastern.cs5520fa22groupproject.Adapter.EasyLifePostsAdapter;
+import edu.northeastern.cs5520fa22groupproject.EasyLifeMainActivity;
 import edu.northeastern.cs5520fa22groupproject.EasyLifeMakingPost;
 import edu.northeastern.cs5520fa22groupproject.R;
 import edu.northeastern.cs5520fa22groupproject.model.Post;
@@ -36,7 +38,6 @@ public class EasyLifePostsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_easy_life_post, container, false);
         recyclerView = view.findViewById(R.id.rv_post);
         recyclerView.setHasFixedSize(true);
@@ -71,6 +72,7 @@ public class EasyLifePostsFragment extends Fragment {
 
                 easyLifePostsAdapter = new EasyLifePostsAdapter(getContext(), postList);
                 recyclerView.setAdapter(easyLifePostsAdapter);
+                recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
             }
 
             @Override

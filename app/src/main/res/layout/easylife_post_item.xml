@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image_user_icon"
         android:layout_width="50dp"
@@ -32,12 +33,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginLeft="18dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:layout_toEndOf="@id/image_user_icon"
         android:layout_toRightOf="@id/image_user_icon"
         android:text="context"
         android:textColor="#4C4B4B"
         android:textSize="20sp" />
+
 
     <TextView
         android:id="@+id/tv_post_location"
@@ -45,11 +47,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginLeft="18dp"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@id/tv_post_user"
-        android:layout_toRightOf="@id/tv_post_user"
+        android:layout_marginTop="38dp"
+        android:layout_toEndOf="@id/image_user_icon"
+        android:layout_toRightOf="@id/image_user_icon"
         android:text="Location"
         android:textColor="#4C4B4B"
-        android:textSize="15sp" />
+        android:textSize="14sp" />
 
 </RelativeLayout>

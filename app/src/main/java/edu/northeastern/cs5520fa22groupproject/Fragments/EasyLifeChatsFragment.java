@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -71,6 +72,7 @@ public class EasyLifeChatsFragment extends Fragment {
 
                 easyLifeChatroomAdapter = new EasyLifeChatroomAdapter(getContext(), mEasyLifeChatroom);
                 recyclerView.setAdapter(easyLifeChatroomAdapter);
+                recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
             }
 
             @Override
