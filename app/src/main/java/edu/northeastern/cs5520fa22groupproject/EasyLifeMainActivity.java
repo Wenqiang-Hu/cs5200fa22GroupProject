@@ -33,7 +33,7 @@ import java.util.ArrayList;
 
 import edu.northeastern.cs5520fa22groupproject.Fragments.EasyLifeChatsFragment;
 import edu.northeastern.cs5520fa22groupproject.Fragments.EasyLifeProfileFragment;
-import edu.northeastern.cs5520fa22groupproject.Fragments.EasyLifeUsersFragment;
+import edu.northeastern.cs5520fa22groupproject.Fragments.EasyLifePostsFragment;
 import edu.northeastern.cs5520fa22groupproject.model.EasyLifeUserDetails;
 
 public class EasyLifeMainActivity extends AppCompatActivity {
@@ -88,8 +88,8 @@ public class EasyLifeMainActivity extends AppCompatActivity {
         final ViewPager viewPager = findViewById(R.id.view_pager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragment(new EasyLifeChatsFragment(), "EasyLifeChats");
-        viewPagerAdapter.addFragment(new EasyLifeUsersFragment(), "EasyLifeUsers");
+        viewPagerAdapter.addFragment(new EasyLifeChatsFragment(), "Chats");
+        viewPagerAdapter.addFragment(new EasyLifePostsFragment(), "Posts");
         viewPagerAdapter.addFragment(new EasyLifeProfileFragment(), "Profile");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
