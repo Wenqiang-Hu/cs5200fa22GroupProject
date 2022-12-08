@@ -39,7 +39,7 @@ public class EasyLifeLoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
-                txt_password = "123456";
+//                txt_password = "123456";
 
                 if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
                     Toast.makeText(EasyLifeLoginActivity.this, "all fields are requiired", Toast.LENGTH_SHORT).show();
