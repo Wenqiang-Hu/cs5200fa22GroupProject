@@ -63,7 +63,8 @@ public class EasyLifeMainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String cur_username = dataSnapshot.child("username").getValue(String.class);
-//                System.out.println("   ======  cur_username ===== " + cur_username);
+                System.out.println("   ======  cur_username ===== " + cur_username);
+                username.setText(cur_username);
                 EasyLifeUserDetails.setUsername(cur_username);
                 EasyLifeUserDetails.setImageURL(dataSnapshot.child("imageURL").getValue(String.class));
 //                System.out.println("   ======  EasyLifeUserDetails.getUsername() ===== " + EasyLifeUserDetails.getUsername());
