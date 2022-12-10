@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/easy_life_logo" />
+        app:srcCompat="@drawable/easylife_actionbar" />
 
     <Button
         android:id="@+id/login"
