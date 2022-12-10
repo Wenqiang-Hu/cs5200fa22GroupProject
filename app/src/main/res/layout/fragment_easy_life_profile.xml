@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Profile"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#FDEA8179"
                 android:textStyle="bold"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -39,7 +39,7 @@
                 android:layout_below="@+id/profile_image"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#FDEA8179"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:layout_marginBottom="20dp"/>
@@ -55,7 +55,7 @@
             android:layout_margin="16dp"
             android:contentDescription="@string/submit"
             android:src="@drawable/ic_edit"
-            app:backgroundTint="#9C27B0" />
+            app:backgroundTint="#FDEA8179" />
 
     </androidx.cardview.widget.CardView>
 

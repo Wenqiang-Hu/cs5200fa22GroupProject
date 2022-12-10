@@ -55,6 +55,7 @@
             android:background="@color/black"
             android:layout_marginTop="10dp"
             android:textColor="#fff"
+            app:backgroundTint="#FDEA8179"
             />
     </LinearLayout>
 
