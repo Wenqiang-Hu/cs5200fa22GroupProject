@@ -21,19 +21,19 @@
             app:popupTheme="@style/MenuStyle">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/chatroom_image"
                 android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:id="@+id/chatroom_image"/>
+                android:layout_height="30dp" />
 
             <TextView
+                android:id="@+id/chatroomName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/chatroomName"
-                android:textSize="18sp"
+                android:layout_marginStart="25dp"
                 android:layout_marginLeft="25dp"
                 android:textColor="#fff"
-                android:textStyle="bold"
-                android:layout_marginStart="25dp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </androidx.appcompat.widget.Toolbar>
 

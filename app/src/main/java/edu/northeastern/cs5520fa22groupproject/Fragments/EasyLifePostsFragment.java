@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 import edu.northeastern.cs5520fa22groupproject.Adapter.EasyLifePostsAdapter;
 import edu.northeastern.cs5520fa22groupproject.EasyLifeMainActivity;
@@ -69,7 +71,7 @@ public class EasyLifePostsFragment extends Fragment {
                     Post post  = new Post(user, context, icon, location);
                     postList.add(post);
                 }
-
+                Collections.reverse(postList);
                 easyLifePostsAdapter = new EasyLifePostsAdapter(getContext(), postList);
                 recyclerView.setAdapter(easyLifePostsAdapter);
                 recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));

@@ -45,9 +45,9 @@ public class EasyLifePostsAdapter extends RecyclerView.Adapter<EasyLifePostsAdap
         holder.user.setText(post.getUser());
         holder.context.setText(post.getContext());
         holder.location.setText(post.getLocation());
-        if (holder.icon.equals("default")) {
-
-            holder.icon.setImageResource(R.mipmap.ic_launcher);
+        if (post.getIcon().equals("default")) {
+            //holder.icon.setImageResource(R.drawable.easylife_actionbar);
+            Glide.with(context).load(R.drawable.easylife_actionbar).into(holder.icon);
         } else {
             Glide.with(context).load(post.getIcon()).into(holder.icon);
         }

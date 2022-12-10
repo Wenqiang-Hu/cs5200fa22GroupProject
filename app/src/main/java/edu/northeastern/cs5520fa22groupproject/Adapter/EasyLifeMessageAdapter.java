@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -52,7 +53,8 @@ public class EasyLifeMessageAdapter extends RecyclerView.Adapter<EasyLifeMessage
     public void onBindViewHolder(@NonNull EasyLifeMessageAdapter.ViewHolder holder, int position) {
         EasyLifeChat2 chat = mChat.get(position);
         holder.show_message.setText(chat.getMessage());
-        holder.profile_image.setImageResource(R.mipmap.ic_launcher);
+        Glide.with(holder.show_message).load(chat.getIcon()).into(holder.profile_image);
+        //holder.profile_image.setImageResource(R.mipmap.ic_launcher);
         holder.username_in_chatroom.setText(chat.getUsername());
     }
 

@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginLeft="18dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:layout_toEndOf="@id/image_user_icon"
         android:layout_toRightOf="@id/image_user_icon"
         android:text="context"

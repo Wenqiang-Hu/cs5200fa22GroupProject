@@ -25,14 +25,16 @@
         tools:targetApi="31">
         <activity
             android:name=".EasyLifeMessageActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".EasyLifeChatroomLobby" />
 
         <activity
             android:name=".EasyLifeMainActivity"
             android:exported="false" />
         <activity
             android:name=".EasyLifeMakingPost"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".EasyLifeMainActivity" />
         <activity
             android:name=".EasyLifeChatroomLobby"
             android:exported="false" />

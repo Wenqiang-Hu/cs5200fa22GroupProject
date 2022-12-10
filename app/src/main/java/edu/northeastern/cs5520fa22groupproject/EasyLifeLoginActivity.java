@@ -27,9 +27,7 @@ public class EasyLifeLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_easylife_login);
-
         auth = FirebaseAuth.getInstance();
-
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btn_login = findViewById(R.id.btn_login);

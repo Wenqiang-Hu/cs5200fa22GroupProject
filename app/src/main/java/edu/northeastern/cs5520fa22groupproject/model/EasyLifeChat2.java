@@ -4,11 +4,13 @@ public class EasyLifeChat2 {
     private String senderId;
     private String username;
     private String message;
+    private String icon;
 
-    public EasyLifeChat2(String message, String senderId, String username) {
+    public EasyLifeChat2(String message, String senderId, String username, String icon) {
         this.senderId = senderId;
         this.message = message;
         this.username = username;
+        this.icon = icon;
     }
 
     public EasyLifeChat2() {
@@ -36,5 +38,13 @@ public class EasyLifeChat2 {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }

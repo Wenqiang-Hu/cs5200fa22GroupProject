@@ -92,7 +92,7 @@ public class EasyLifeProfileFragment extends Fragment {
 
                 if (user.getImageURL().equals("default")) {
 
-                    image_profile.setImageResource(R.mipmap.ic_launcher);
+                    image_profile.setImageResource(R.drawable.easylife_actionbar);
                 } else {
 
                     Glide.with(getContext()).load(user.getImageURL()).into(image_profile);
@@ -123,7 +123,7 @@ public class EasyLifeProfileFragment extends Fragment {
     }
 
     private void showEditProfileDialog() {
-        String options[] = {"Edit Name", "Edit Photo"};
+        String options[] = {"Edit Name", "Edit Photo", "Logout"};
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle("Choose Action");
@@ -135,6 +135,8 @@ public class EasyLifeProfileFragment extends Fragment {
                 } else if (which == 1) {
                     openImage();
                 } else if (which == 2) {
+                    android.os.Process.killProcess(android.os.Process.myPid());
+                }else{
 
                 }
             }

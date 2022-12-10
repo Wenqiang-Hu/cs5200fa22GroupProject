@@ -36,7 +36,6 @@ public class EasyLifeMessageActivity extends AppCompatActivity {
     CircleImageView chatroom_image;
     TextView chatroomname;
     FirebaseUser fuser;
-
     String chatId;
 
     Intent intent;
@@ -145,11 +144,9 @@ public class EasyLifeMessageActivity extends AppCompatActivity {
 
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("senderId", sender);
-//        hashMap.put("receiver", receiver);
         hashMap.put("message", message);
-//        hashMap.put("isseen", false);
-
         hashMap.put("username", EasyLifeUserDetails.getUsername());
+        hashMap.put("icon", EasyLifeUserDetails.getImageURL());
 
         reference.child("/EasyLife/Chatroom/" + chatId + "/message").push().setValue(hashMap);
     }
