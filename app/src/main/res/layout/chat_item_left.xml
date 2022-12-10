@@ -5,13 +5,13 @@ android:padding="10dp"
 android:layout_width="match_parent"
 android:layout_height="wrap_content">
 
-<de.hdodenhof.circleimageview.CircleImageView
-    android:id="@+id/profile_image"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="10dp"
-    android:src="@mipmap/ic_launcher" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/easylife_actionbar" />
 
     <TextView
         android:id="@+id/username_inside_room"

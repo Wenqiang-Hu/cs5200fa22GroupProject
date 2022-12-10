@@ -53,8 +53,12 @@ public class EasyLifeMessageAdapter extends RecyclerView.Adapter<EasyLifeMessage
     public void onBindViewHolder(@NonNull EasyLifeMessageAdapter.ViewHolder holder, int position) {
         EasyLifeChat2 chat = mChat.get(position);
         holder.show_message.setText(chat.getMessage());
-        Glide.with(holder.show_message).load(chat.getIcon()).into(holder.profile_image);
-        //holder.profile_image.setImageResource(R.mipmap.ic_launcher);
+        if (chat.getIcon().equals("default")) {
+            //holder.icon.setImageResource(R.drawable.easylife_actionbar);
+            Glide.with(holder.show_message).load(R.drawable.easylife_actionbar).into(holder.profile_image);
+        } else {
+            Glide.with(holder.show_message).load(chat.getIcon()).into(holder.profile_image);
+        }
         holder.username_in_chatroom.setText(chat.getUsername());
     }
 
